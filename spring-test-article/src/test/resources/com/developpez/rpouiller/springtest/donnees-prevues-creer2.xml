@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <Exemple nom="Chocolat" />
+    <Exemple nom="Chien" />
+    <Exemple nom="Framboise" />
+    <Exemple nom="Cacao" />
+    <Exemple nom="Caramel" />
+    <Exemple nom="Cerise" />
+    <Exemple nom="Fraise" />
+    <Exemple nom="Test" />
+</dataset>

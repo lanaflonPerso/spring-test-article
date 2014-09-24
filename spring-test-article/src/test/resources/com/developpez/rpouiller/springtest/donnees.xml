@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <Exemple identifiant="1" nom="Chocolat" />
+    <Exemple identifiant="2" nom="Chien" />
+    <Exemple identifiant="3" nom="Framboise" />
+    <Exemple identifiant="4" nom="Cacao" />
+    <Exemple identifiant="5" nom="Caramel" />
+    <Exemple identifiant="6" nom="Cerise" />
+    <Exemple identifiant="7" nom="Fraise" />
+</dataset>
