@@ -42,14 +42,14 @@ public class ServiceSimpleTest {
     @Test
     public void testCompterCrit2() {
         // Arrange
-        final String lCritere = "Crit2";
-        final int lExpected = 10;
+        final String critere = "Crit2";
+        final int expected = 10;
 
         // Act
-        final int lValeur = service.compter(lCritere);
+        final int valeur = service.compter(critere);
         
         // Assert
-        assertEquals(lExpected, lValeur);
-        assertEquals(lCritere, dao.getCritere());
+        assertEquals(expected, valeur);
+        assertEquals(critere, dao.getCritere());
     }
 }
