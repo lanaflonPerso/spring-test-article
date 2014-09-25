@@ -13,6 +13,8 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="DaoSimpleTest-context.xml")
@@ -50,5 +52,28 @@ public class DaoSimpleTestAvecSpringTestDBUnit {
 
         // Assert
         assertEquals(expected, valeur);
+    }
+
+    @Test
+    @DatabaseSetup("donnees.xml")
+    @ExpectedDatabase("donnees-prevues.xml")
+    public void testSupprimer() {
+        // Arrange
+        final int identifiant = 2;
+
+        // Act
+        dao.supprimer(identifiant);
+    }
+
+    @Test
+    @DatabaseSetup("donnees.xml")
+    @ExpectedDatabase(assertionMode=DatabaseAssertionMode.NON_STRICT,
+            value="donnees-prevues-creer2.xml")
+    public void testCreer() {
+        // Arrange
+        final String nom = "Test";
+    
+        // Act
+        dao.creer(nom);
     }
 }
