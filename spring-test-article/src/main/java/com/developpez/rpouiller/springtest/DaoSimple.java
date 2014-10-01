@@ -1,10 +1,14 @@
 package com.developpez.rpouiller.springtest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,7 +16,7 @@ import org.springframework.stereotype.Repository;
 public class DaoSimple implements IDaoSimple {
 
     private static final String REQUETE_COMPTER =
-            "SELECT COUNT(*) FROM EXEMPLE WHERE NOM LIKE ?";
+            "SELECT COUNT(*) FROM EXEMPLE WHERE NOM LIKE :nom";
     private static final String REQUETE_SUPPRIMER =
         "DELETE FROM EXEMPLE WHERE IDENTIFIANT = ?";
     private static final String REQUETE_CREER =
@@ -24,8 +28,10 @@ public class DaoSimple implements IDaoSimple {
 
     @Override
     public int compter(final String critere) {
-        final JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        return jdbcTemplate.queryForObject(REQUETE_COMPTER, Integer.class, critere + "%");
+        final NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        final Map<String, Object> params = new HashMap<String, Object>();
+        params.put("nom", critere + "%");
+        return jdbcTemplate.queryForObject(REQUETE_COMPTER, params, Integer.class);
     }
 
     @Override

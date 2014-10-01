@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>com.excilys.ebi.spring-dbunit</groupId>
 			<artifactId>spring-dbunit-test</artifactId>
-			<version>1.3.0</version>
+			<version>1.4.0</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- Fin des dépendances pour Spring-DBUnit -->
